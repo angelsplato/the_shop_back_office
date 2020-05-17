@@ -1,25 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Router } from "@reach/router";
+import PasswordReset from './component/PasswordReset';
+import ProfilePage from './component/ProfilePage';
+import SignIn from './component/SignIn';
+import SignUp from './component/SignUp';
+
 
 function App() {
+
+  const user = null;
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    user ?
+      <ProfilePage />
+      :
+      <Router>
+        <SignUp path="signUp" />
+        <SignIn path="/" />
+        <PasswordReset path="passwordReset" />
+      </Router>
   );
 }
 
