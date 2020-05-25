@@ -1,27 +1,14 @@
 import React from 'react';
 import './App.css';
-import { Router } from "@reach/router";
-import PasswordReset from './component/PasswordReset';
-import ProfilePage from './component/ProfilePage';
-import SignIn from './component/SignIn';
-import SignUp from './component/SignUp';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Application from './components/Application'
+import UserProvider from './providers/UserProvider'
 
 function App() {
-
-  const user = null;
-
-
-
   return (
-    user ?
-      <ProfilePage />
-      :
-      <Router>
-        <SignUp path="signUp" />
-        <SignIn path="/" />
-        <PasswordReset path="passwordReset" />
-      </Router>
+    <UserProvider>
+      <Application />
+    </UserProvider>
   );
 }
 
